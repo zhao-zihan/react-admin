@@ -12,7 +12,7 @@ import { Formik } from "formik";
 import { schema } from "../schemas/index.js";
 import "../css/Signin.css";
 
-function Signin() {
+function Signup() {
   return (
     <main className="main py-5">
       <section className="d-flex align-items-center mt-lg-6 mb-lg-5">
@@ -34,11 +34,18 @@ function Signin() {
             >
               <div className="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                 <div className="text-center text-md-center mb-4 mt-md-0">
-                  <h3 className="mb-0">Sign in to our platform</h3>
+                  <h3 className="mb-0">Create an account</h3>
                 </div>
                 <Formik
                   validationSchema={schema}
-                  initialValues={{ email: "", password: "" }}
+                  initialValues={{
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    password: "",
+                    confirmPassword: "",
+                    terms: false,
+                  }}
                 >
                   {({
                     handleSubmit,
@@ -50,6 +57,34 @@ function Signin() {
                     errors,
                   }) => (
                     <Form className="mt-4" onSubmit={handleSubmit}>
+                      <div className="d-flex justify-content-between align-items-center">
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                          <Form.Label>Your First Name</Form.Label>
+                          <Form.Control
+                            name="firstName"
+                            placeholder="Enter first name"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isInvalid={errors.firstName && touched.firstName}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.firstName}
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                          <Form.Label>Your Last Name</Form.Label>
+                          <Form.Control
+                            name="lastName"
+                            placeholder="Enter last name"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isInvalid={errors.lastName && touched.lastName}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.lastName}
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </div>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Your Email</Form.Label>
                         <InputGroup>
@@ -115,31 +150,68 @@ function Signin() {
                           </Form.Control.Feedback>
                         </InputGroup>
                       </Form.Group>
+
+                      <Form.Group
+                        className="mb-3"
+                        controlId="formBasicPassword"
+                      >
+                        <Form.Label>Confirm Password</Form.Label>
+                        <InputGroup>
+                          <InputGroup.Text
+                            className={`bg-transparent ${
+                              errors.confirmPassword && touched.confirmPassword
+                                ? "input-invalid"
+                                : ""
+                            }`}
+                          >
+                            <Icon
+                              className="d-flex align-items-center search-icon"
+                              fitted
+                              name="unlock alternate"
+                            ></Icon>
+                          </InputGroup.Text>
+                          <Form.Control
+                            type="password"
+                            name="confirmPassword"
+                            value={values.confirmPassword}
+                            className="search-input"
+                            placeholder="Re-enter password"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isInvalid={
+                              errors.confirmPassword && touched.confirmPassword
+                            }
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.confirmPassword}
+                          </Form.Control.Feedback>
+                        </InputGroup>
+                      </Form.Group>
                       <div className="d-flex justify-content-between align-items-center mb-4">
-                        <Form.Check type="checkbox" label="Remember me" />
-                        <Card.Link
-                          as={Link}
-                          to={routes.FORGOT_PASSWORD.path}
-                          className="link"
-                        >
-                          Forgot password?
-                        </Card.Link>
+                        <Form.Check
+                          name="terms"
+                          label="I agree to terms & conditions"
+                          onChange={handleChange}
+                          isInvalid={!!errors.terms}
+                          feedback={errors.terms}
+                          feedbackType="invalid"
+                        />
                       </div>
                       <Button variant="primary" type="submit" className="w-100">
-                        Sign in
+                        Sign up
                       </Button>
                     </Form>
                   )}
                 </Formik>
                 <div className="d-flex justify-content-center align-items-center mt-4">
                   <span className="fw-normal">
-                    Not registered?
+                    Already have an account?
                     <Card.Link
                       as={Link}
-                      to={routes.SIGN_UP.path}
+                      to={routes.SIGN_IN.path}
                       className="fw-bold link"
                     >
-                      {` Create account `}
+                      {` Login here `}
                     </Card.Link>
                   </span>
                 </div>
@@ -152,4 +224,4 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default Signup;

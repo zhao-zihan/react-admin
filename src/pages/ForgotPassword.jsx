@@ -12,7 +12,7 @@ import { Formik } from "formik";
 import { schema } from "../schemas/index.js";
 import "../css/Signin.css";
 
-function Signin() {
+function ForgotPassword() {
   return (
     <main className="main py-5">
       <section className="d-flex align-items-center mt-lg-6 mb-lg-5">
@@ -117,13 +117,7 @@ function Signin() {
                       </Form.Group>
                       <div className="d-flex justify-content-between align-items-center mb-4">
                         <Form.Check type="checkbox" label="Remember me" />
-                        <Card.Link
-                          as={Link}
-                          to={routes.FORGOT_PASSWORD.path}
-                          className="link"
-                        >
-                          Forgot password?
-                        </Card.Link>
+                        <Card.Link className="link">Forgot password?</Card.Link>
                       </div>
                       <Button variant="primary" type="submit" className="w-100">
                         Sign in
@@ -152,4 +146,4 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default ForgotPassword;

@@ -29,8 +29,10 @@ function Header() {
               <NavDropdown.Item href={routes.SIGN_IN.path}>
                 Sign in
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Sign up</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
+              <NavDropdown.Item href={routes.SIGN_UP.path}>
+                Sign up
+              </NavDropdown.Item>
+              <NavDropdown.Item href={routes.FORGOT_PASSWORD.path}>
                 Forget password
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.4">
