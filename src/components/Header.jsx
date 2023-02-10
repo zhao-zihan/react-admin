@@ -27,16 +27,16 @@ function Header() {
             <Nav.Link href="#contact">Contact</Nav.Link>
             <NavDropdown title="Pages" id="collasible-nav-dropdown">
               <NavDropdown.Item href={routes.SIGN_IN.path}>
-                Sign in
+                Sign In
               </NavDropdown.Item>
               <NavDropdown.Item href={routes.SIGN_UP.path}>
-                Sign up
+                Sign Up
               </NavDropdown.Item>
               <NavDropdown.Item href={routes.FORGOT_PASSWORD.path}>
-                Forget password
+                Forget Password
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">
-                Reset password
+              <NavDropdown.Item href={routes.NOT_FOUND.path}>
+                404 Not Found
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

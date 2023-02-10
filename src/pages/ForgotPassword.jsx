@@ -20,11 +20,11 @@ function ForgotPassword() {
           <p className="text-center">
             <Card.Link
               as={Link}
-              to={routes.HOME_PAGE.path}
+              to={routes.SIGN_IN.path}
               className="text-gray-700 link"
             >
               <Icon name="angle left" className="me-2"></Icon>
-              Back to homepage
+              Back to sign in
             </Card.Link>
           </p>
           <Row className="justify-content-center">
@@ -34,12 +34,13 @@ function ForgotPassword() {
             >
               <div className="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                 <div className="text-center text-md-center mb-4 mt-md-0">
-                  <h3 className="mb-0">Sign in to our platform</h3>
+                  <h3 className="mb-0">Forgot your password?</h3>
                 </div>
-                <Formik
-                  validationSchema={schema}
-                  initialValues={{ email: "", password: "" }}
-                >
+                <p className="mb-4">
+                  Don't worry! Just type in your email and we will send you a
+                  link to reset your password!
+                </p>
+                <Formik validationSchema={schema} initialValues={{ email: "" }}>
                   {({
                     handleSubmit,
                     handleChange,
@@ -50,13 +51,17 @@ function ForgotPassword() {
                     errors,
                   }) => (
                     <Form className="mt-4" onSubmit={handleSubmit}>
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form.Group className="mb-4" controlId="formBasicEmail">
                         <Form.Label>Your Email</Form.Label>
                         <InputGroup>
                           <InputGroup.Text
                             className={`bg-transparent ${
                               errors.email && touched.email
                                 ? "input-invalid"
+                                : ""
+                            } ${
+                              !errors.email && touched.email
+                                ? "input-valid"
                                 : ""
                             }`}
                           >
@@ -74,6 +79,7 @@ function ForgotPassword() {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             isInvalid={errors.email && touched.email}
+                            isValid={!errors.email && touched.email}
                           />
                           <Form.Control.Feedback type="invalid">
                             {errors.email}
@@ -81,62 +87,12 @@ function ForgotPassword() {
                         </InputGroup>
                       </Form.Group>
 
-                      <Form.Group
-                        className="mb-3"
-                        controlId="formBasicPassword"
-                      >
-                        <Form.Label>Your Password</Form.Label>
-                        <InputGroup>
-                          <InputGroup.Text
-                            className={`bg-transparent ${
-                              errors.password && touched.password
-                                ? "input-invalid"
-                                : ""
-                            }`}
-                          >
-                            <Icon
-                              className="d-flex align-items-center search-icon"
-                              fitted
-                              name="unlock alternate"
-                            ></Icon>
-                          </InputGroup.Text>
-                          <Form.Control
-                            type="password"
-                            name="password"
-                            value={values.password}
-                            className="search-input"
-                            placeholder="Enter password"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            isInvalid={errors.password && touched.password}
-                          />
-                          <Form.Control.Feedback type="invalid">
-                            {errors.password}
-                          </Form.Control.Feedback>
-                        </InputGroup>
-                      </Form.Group>
-                      <div className="d-flex justify-content-between align-items-center mb-4">
-                        <Form.Check type="checkbox" label="Remember me" />
-                        <Card.Link className="link">Forgot password?</Card.Link>
-                      </div>
                       <Button variant="primary" type="submit" className="w-100">
-                        Sign in
+                        Recover password
                       </Button>
                     </Form>
                   )}
                 </Formik>
-                <div className="d-flex justify-content-center align-items-center mt-4">
-                  <span className="fw-normal">
-                    Not registered?
-                    <Card.Link
-                      as={Link}
-                      to={routes.SIGN_UP.path}
-                      className="fw-bold link"
-                    >
-                      {` Create account `}
-                    </Card.Link>
-                  </span>
-                </div>
               </div>
             </Col>
           </Row>

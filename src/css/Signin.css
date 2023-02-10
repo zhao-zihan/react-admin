@@ -30,6 +30,13 @@
   cursor: pointer;
 }
 
+.input-valid {
+  border-color: green;
+}
 .input-invalid {
   border-color: red;
+}
+
+.error-code {
+  font-size: 10rem;
 }

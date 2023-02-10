@@ -66,6 +66,7 @@ function Signup() {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             isInvalid={errors.firstName && touched.firstName}
+                            isValid={!errors.firstName && touched.firstName}
                           />
                           <Form.Control.Feedback type="invalid">
                             {errors.firstName}
@@ -79,6 +80,7 @@ function Signup() {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             isInvalid={errors.lastName && touched.lastName}
+                            isValid={!errors.lastName && touched.lastName}
                           />
                           <Form.Control.Feedback type="invalid">
                             {errors.lastName}
@@ -92,6 +94,10 @@ function Signup() {
                             className={`bg-transparent ${
                               errors.email && touched.email
                                 ? "input-invalid"
+                                : ""
+                            } ${
+                              !errors.email && touched.email
+                                ? "input-valid"
                                 : ""
                             }`}
                           >
@@ -109,6 +115,7 @@ function Signup() {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             isInvalid={errors.email && touched.email}
+                            isValid={!errors.email && touched.email}
                           />
                           <Form.Control.Feedback type="invalid">
                             {errors.email}
@@ -127,6 +134,10 @@ function Signup() {
                               errors.password && touched.password
                                 ? "input-invalid"
                                 : ""
+                            } ${
+                              !errors.password && touched.password
+                                ? "input-valid"
+                                : ""
                             }`}
                           >
                             <Icon
@@ -144,6 +155,7 @@ function Signup() {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             isInvalid={errors.password && touched.password}
+                            isValid={!errors.password && touched.password}
                           />
                           <Form.Control.Feedback type="invalid">
                             {errors.password}
@@ -161,6 +173,10 @@ function Signup() {
                             className={`bg-transparent ${
                               errors.confirmPassword && touched.confirmPassword
                                 ? "input-invalid"
+                                : ""
+                            } ${
+                              !errors.confirmPassword && touched.confirmPassword
+                                ? "input-valid"
                                 : ""
                             }`}
                           >
@@ -180,6 +196,9 @@ function Signup() {
                             onBlur={handleBlur}
                             isInvalid={
                               errors.confirmPassword && touched.confirmPassword
+                            }
+                            isValid={
+                              !errors.confirmPassword && touched.confirmPassword
                             }
                           />
                           <Form.Control.Feedback type="invalid">

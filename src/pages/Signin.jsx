@@ -58,6 +58,10 @@ function Signin() {
                               errors.email && touched.email
                                 ? "input-invalid"
                                 : ""
+                            } ${
+                              !errors.email && touched.email
+                                ? "input-valid"
+                                : ""
                             }`}
                           >
                             <Icon
@@ -74,6 +78,7 @@ function Signin() {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             isInvalid={errors.email && touched.email}
+                            isValid={!errors.email && touched.email}
                           />
                           <Form.Control.Feedback type="invalid">
                             {errors.email}
@@ -92,6 +97,10 @@ function Signin() {
                               errors.password && touched.password
                                 ? "input-invalid"
                                 : ""
+                            } ${
+                              !errors.password && touched.password
+                                ? "input-valid"
+                                : ""
                             }`}
                           >
                             <Icon
@@ -109,6 +118,7 @@ function Signin() {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             isInvalid={errors.password && touched.password}
+                            isValid={!errors.password && touched.password}
                           />
                           <Form.Control.Feedback type="invalid">
                             {errors.password}
