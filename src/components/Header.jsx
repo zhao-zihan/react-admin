@@ -8,7 +8,7 @@ import { routes } from "../routes.js";
 
 function Header() {
   return (
-    <Navbar variant="dark" expand="lg" bg="dark">
+    <Navbar variant="dark" expand="lg" bg="dark" className="d-md-none">
       <Container className="position-relative">
         <Navbar.Brand href="/">
           <Image
@@ -22,9 +22,9 @@ function Header() {
         <Navbar.Toggle aria-controls="navbar-default-primary" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#contact">Contact</Nav.Link>
+            <Nav.Link href={routes.DASHBOARD_OVERVIEW.path}>Overview</Nav.Link>
+            <Nav.Link href={routes.SETTINGS.path}>Settings</Nav.Link>
+            <Nav.Link href={routes.TABLES.path}>Tables</Nav.Link>
             <NavDropdown title="Pages" id="collasible-nav-dropdown">
               <NavDropdown.Item href={routes.SIGN_IN.path}>
                 Sign In

@@ -1,11 +1,7 @@
-import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
 
 function DashboardOverview() {
-  return (
-    <>
-      <Header />
-    </>
-  );
+  return <Sidebar />;
 }
 
 export default DashboardOverview;

@@ -11,4 +11,5 @@ export const routes = {
   RESET_PASSWORD: { path: "/reset-password" },
   NOT_FOUND: { path: "/examples/404" },
   SERVER_ERROR: { path: "/examples/500" },
+  TABLES: { path: "/tables" },
 };
