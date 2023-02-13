@@ -1,0 +1,41 @@
+.sr-only {
+  display: none;
+}
+
+.search-field {
+  width: 85%;
+}
+
+.search-label {
+  min-width: 100%;
+}
+
+.btn-edit,
+.btn-edit:hover,
+.btn-edit:active:hover,
+.btn-sort,
+.btn-sort:hover,
+.btn-sort:active:hover {
+  background-color: transparent;
+  border: none;
+}
+
+.icon-edit,
+.icon-sort {
+  color: rgb(157, 156, 156);
+}
+
+.icon-edit:hover {
+  color: rgb(28, 27, 27);
+}
+
+@media (min-width: 768px) {
+  .App {
+    position: absolute;
+    right: -260px;
+    left: 260px;
+    width: 80%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
