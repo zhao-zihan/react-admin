@@ -9,6 +9,7 @@ import ToolkitProvider, {
 import { Button } from "react-bootstrap";
 import { Icon } from "semantic-ui-react";
 import "../css/Table.css";
+import DragDrop from "../components/DragDrop";
 
 function Table() {
   const productsGenerator = (quantity) => {
@@ -84,9 +85,12 @@ function Table() {
       <ToolkitProvider keyField="id" data={products} columns={columns} search>
         {(props) => (
           <div>
-            <div className="search-field mx-auto">
-              <h3>Search table data:</h3>
-              <SearchBar {...props.searchProps} />
+            <div className="d-flex justify-content-between align-items-center my-4">
+              <div className="search-field">
+                <h3>Search table data:</h3>
+                <SearchBar {...props.searchProps} />
+              </div>
+              <DragDrop />
             </div>
             <hr />
             <BootstrapTable

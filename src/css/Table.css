@@ -2,14 +2,6 @@
   display: none;
 }
 
-.search-field {
-  width: 85%;
-}
-
-.search-label {
-  min-width: 100%;
-}
-
 .btn-edit,
 .btn-edit:hover,
 .btn-edit:active:hover,
@@ -27,6 +19,11 @@
 
 .icon-edit:hover {
   color: rgb(28, 27, 27);
+}
+
+.react-bootstrap-table-pagination-list {
+  display: flex;
+  justify-content: end;
 }
 
 @media (min-width: 768px) {
