@@ -11,7 +11,8 @@ export const schema = yup.object().shape({
     .typeError("Password must be at least 8 characters"),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password"), null], "Passwords must match"),
+    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .required("Required"),
   terms: yup
     .bool()
     .required()
