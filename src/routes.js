@@ -12,4 +12,5 @@ export const routes = {
   NOT_FOUND: { path: "/examples/404" },
   SERVER_ERROR: { path: "/examples/500" },
   TABLES: { path: "/tables" },
+  PROFILE: { path: "/users" },
 };

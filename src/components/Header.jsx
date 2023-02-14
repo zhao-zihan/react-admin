@@ -1,10 +1,14 @@
+import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
+import { Icon } from "semantic-ui-react";
 import ReactLogo from "../assets/img/react-logo-transparent.svg";
 import { routes } from "../routes.js";
+import "../css/Header.css";
 
 function Header() {
   return (
@@ -39,6 +43,12 @@ function Header() {
                 404 Not Found
               </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link>
+              <Icon name="user circle"></Icon>Username
+            </Nav.Link>
+            <Button className="btn-sign-out">
+              <Icon name="log out"></Icon> Sign out
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

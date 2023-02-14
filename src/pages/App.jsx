@@ -1,3 +1,4 @@
+import React from "react";
 import "semantic-ui-css/semantic.min.css";
 import "../css/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,6 +10,7 @@ import Signup from "./Signup";
 import ForgotPassword from "./ForgotPassword";
 import NotFound from "./NotFound";
 import Tables from "./Tables";
+import Settings from "./Settings";
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
       <Route path={routes.FORGOT_PASSWORD.path} element={<ForgotPassword />} />
       <Route path={routes.NOT_FOUND.path} element={<NotFound />} />
       <Route path={routes.TABLES.path} element={<Tables />} />
+      <Route path={routes.SETTINGS.path} element={<Settings />} />
     </Routes>
   );
 }

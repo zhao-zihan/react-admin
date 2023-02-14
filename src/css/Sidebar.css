@@ -28,6 +28,11 @@
   border-radius: 0.5rem;
 }
 
+.sidebar .btn-sign-out {
+  color: #eaedf2;
+  border-radius: 0.5rem;
+}
+
 .sidebar .nav-item .nav-link {
   color: #eaedf2;
   border: 0.0625rem solid #262b40;

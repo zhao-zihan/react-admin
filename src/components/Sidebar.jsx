@@ -9,7 +9,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import { Icon } from "semantic-ui-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../css/Sidebar.css";
 import ReactLogo from "../assets/img/react-logo-transparent.svg";
@@ -105,32 +105,6 @@ function Sidebar() {
 
   return (
     <>
-      {/* <Navbar
-        expand={false}
-        collapseOnSelect
-        variant="dark"
-        className="navbar-theme-primary px-4 d-md-none"
-      >
-        <Navbar.Brand
-          className="me-lg-5"
-          as={Link}
-          to={routes.DASHBOARD_OVERVIEW.path}
-        >
-          <Image
-            src={ReactLogo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />{" "}
-        </Navbar.Brand>
-        <Navbar.Toggle
-          as={Button}
-          aria-controls="main-navbar"
-          onClick={onCollapse}
-        >
-          <span className="navbar-toggler-icon" />
-        </Navbar.Toggle>
-      </Navbar> */}
       <Header />
       <CSSTransition timeout={300} in={show} classNames="sidebar-transition">
         <SimpleBar
@@ -169,7 +143,6 @@ function Sidebar() {
                 link={routes.DASHBOARD_OVERVIEW.path}
                 image={ReactLogo}
               />
-
               <NavItem
                 title="Overview"
                 link={routes.DASHBOARD_OVERVIEW.path}
@@ -185,7 +158,6 @@ function Sidebar() {
                 icon="columns"
                 link={routes.TABLES.path}
               />
-
               <CollapsableNavItem
                 eventKey="examples/"
                 title="Page Examples"
@@ -199,6 +171,14 @@ function Sidebar() {
                 />
                 <NavItem title="404 Not Found" link={routes.NOT_FOUND.path} />
               </CollapsableNavItem>
+              <NavItem
+                title="Username"
+                icon="user circle"
+                link={routes.PROFILE.path}
+              />
+              <Button className="btn-sign-out">
+                <Icon name="log out"></Icon> Sign out
+              </Button>
             </Nav>
           </div>
         </SimpleBar>

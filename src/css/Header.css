@@ -1,0 +1,14 @@
+.btn-sign-out {
+  background-color: inherit;
+  border: none;
+  display: flex;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  --bs-btn-border-radius: none !important;
+}
+
+.btn-sign-out:hover,
+.btn-sign-out:active:hover {
+  background-color: #506690;
+  --bs-btn-border-radius: none !important;
+}
