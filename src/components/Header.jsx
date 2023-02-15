@@ -11,6 +11,11 @@ import { routes } from "../routes.js";
 import "../css/Header.css";
 
 function Header() {
+  const pageDropDownIcon = (
+    <span>
+      <Icon name="file alternate"></Icon>Pages
+    </span>
+  );
   return (
     <Navbar variant="dark" expand="lg" bg="dark" className="d-md-none">
       <Container className="position-relative">
@@ -26,10 +31,20 @@ function Header() {
         <Navbar.Toggle aria-controls="navbar-default-primary" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href={routes.DASHBOARD_OVERVIEW.path}>Overview</Nav.Link>
-            <Nav.Link href={routes.SETTINGS.path}>Settings</Nav.Link>
-            <Nav.Link href={routes.TABLES.path}>Tables</Nav.Link>
-            <NavDropdown title="Pages" id="collasible-nav-dropdown">
+            <Nav.Link href={routes.DASHBOARD_OVERVIEW.path}>
+              <Icon name="chart pie"></Icon>Overview
+            </Nav.Link>
+            <Nav.Link href={routes.SETTINGS.path}>
+              <Icon name="setting"></Icon>Settings
+            </Nav.Link>
+            <Nav.Link href={routes.TABLES.path}>
+              <Icon name="columns"></Icon>Tables
+            </Nav.Link>
+            <NavDropdown
+              title={pageDropDownIcon}
+              id="collasible-nav-dropdown"
+              icon="file alternate"
+            >
               <NavDropdown.Item href={routes.SIGN_IN.path}>
                 Sign In
               </NavDropdown.Item>
