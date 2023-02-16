@@ -9,6 +9,7 @@
   overflow-y: auto;
   width: 100%;
   transition: max-width 0.3s;
+  background-color: rgba(33, 37, 41) !important;
 }
 
 .sidebar-inner {

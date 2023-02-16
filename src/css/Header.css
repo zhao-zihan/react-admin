@@ -1,9 +1,14 @@
+.navbar-nav .nav-link {
+  border-radius: 0.5rem;
+}
+
 .btn-sign-out {
   background-color: inherit;
   border: none;
   display: flex;
   padding: 0.5rem 1rem;
   color: rgba(255, 255, 255, 0.55);
+  border-radius: 0.5rem;
   --bs-btn-border-radius: none !important;
 }
 
