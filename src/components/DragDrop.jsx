@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
+import { Link } from "react-router-dom";
+import "../css/DragDrop.css";
 
 const fileTypes = [
   "xlsx",
@@ -22,12 +24,23 @@ function DragDrop() {
     setFile(file);
   };
   return (
-    <FileUploader
-      className="mx-auto"
-      handleChange={handleChange}
-      name="file"
-      types={fileTypes}
-    />
+    <>
+      <div className="d-flex flex-column align-items-center">
+        <FileUploader
+          handleChange={handleChange}
+          name="file"
+          types={fileTypes}
+        />
+        <Link
+          className="link-download mt-2"
+          to="../assets/import_shipment_template.xlsx"
+          target="_blank"
+          download
+        >
+          Download Template
+        </Link>
+      </div>
+    </>
   );
 }
 
