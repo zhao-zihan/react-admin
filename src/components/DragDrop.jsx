@@ -21,49 +21,119 @@ const fileTypes = [
 
 function DragDrop() {
   const [file, setFile] = useState(null);
-  const map = {
-    "Customer Code": "customerCode",
-    "Customer Order ID": "orderId",
-    "Service Code": "serviceCode",
-    "Sales Platform": "salesPlatform",
-    "Weight Unit": "weightUnits",
-    "Length Unit": "dimensionsUnits",
+  const schema = {
+    "Customer Code": {
+      prop: "customerCode",
+    },
+    "Customer Order ID": {
+      prop: "orderId",
+    },
+    "Service Code": {
+      prop: "serviceCode",
+    },
+    "Sales Platform": {
+      prop: "salesPlatform",
+    },
+    "Weight Unit": {
+      prop: "weightUnits",
+    },
+    "Length Unit": {
+      prop: "dimensionsUnits",
+    },
     Sender: {
-      sender: { "Shipper Warehouse Code": "warehouseCode" },
+      prop: "sender",
+      type: {
+        "Shipper Warehouse Code": {
+          prop: "warehouseCode",
+        },
+      },
     },
     Receiver: {
-      receiver: {
-        "Receiver Name": "name",
-        "Receiver Company Name": "companyName",
-        "Receiver Country": "country",
-        "Receiver State": "province",
-        "Receiver City": "city",
-        "Receiver Address 1": "address",
-        "Receiver Address 2": "address2",
-        "Receiver Address 3": "address3",
-        "Receiver Phone Number": "mobile",
-        "Receiver Email": "email",
-        "Receiver Postcode": "zipCode",
+      prop: "receiver",
+      type: {
+        "Receiver Name": {
+          prop: "name",
+        },
+        "Receiver Company Name": {
+          prop: "companyName",
+        },
+        "Receiver Country": {
+          prop: "country",
+        },
+        "Receiver State": {
+          prop: "province",
+        },
+        "Receiver City": {
+          prop: "city",
+        },
+        "Receiver Address 1": {
+          prop: "address",
+        },
+        "Receiver Address 2": {
+          prop: "address2",
+        },
+        "Receiver Address 3": {
+          prop: "address3",
+        },
+        "Receiver Phone Number": {
+          prop: "mobile",
+        },
+        "Receiver Email": {
+          prop: "email",
+        },
+        "Receiver Postcode": {
+          prop: "zipCode",
+        },
       },
     },
     PackageInfos: {
-      packageInfos: {
-        "Package ID": "packageID",
-        "Package Weight": "weight",
-        "Package Length": "length",
-        "Package Width": "width",
-        "Package Height": "height",
+      prop: "packageInfos",
+      type: {
+        "Package ID": {
+          prop: "packageID",
+        },
+        "Package Weight": {
+          prop: "weight",
+        },
+        "Package Length": {
+          prop: "length",
+        },
+        "Package Width": {
+          prop: "width",
+        },
+        "Package Height": {
+          prop: "height",
+        },
         Goods: {
-          goods: {
-            "Product Code": "goodsCode",
-            "Product Name": "goodsName",
-            "Product Quantity": "goodsCount",
-            "Product Value": "worth",
-            Currency: "currency",
-            "Product Weight": "weight",
-            "Product Length": "length",
-            "Product Width": "width",
-            "Product Height": "height",
+          prop: "goods",
+          type: {
+            "Product Code": {
+              prop: "goodsCode",
+            },
+            "Product Name": {
+              prop: "goodsName",
+            },
+            "Product Quantity": {
+              prop: "goodsCount",
+            },
+            "Product Value": {
+              prop: "worth",
+            },
+            Currency: {
+              prop: "currency",
+            },
+            "Product Weight": {
+              prop: "weight",
+            },
+            "Product Length": {
+              prop: "length",
+            },
+            "Product Width": {
+              prop: "width",
+            },
+            "Product Height": {
+              prop: "height",
+            },
           },
         },
       },
@@ -73,7 +143,7 @@ function DragDrop() {
   const handleChange = (file) => {
     setFile(file);
     readXlsxFile(file, {
-      map,
+      schema,
       transformData(data) {
         data.shift();
         console.log(data[0]);
@@ -128,6 +198,11 @@ function DragDrop() {
       },
       includeNullValues: true,
     }).then(({ rows }) => {
+      rows.forEach((row) => {
+        row.packageInfos.goods = [row.packageInfos.goods];
+        row.packageInfos = [row.packageInfos];
+        return row;
+      });
       console.log(rows);
     });
   };
